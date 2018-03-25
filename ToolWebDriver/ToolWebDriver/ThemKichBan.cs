@@ -66,6 +66,7 @@ namespace ToolWebDriver
                         ucClick.Instance.BringToFront();
                     break;
                 case "3":
+
                     if (!panel1.Controls.Contains(ucSendElementById.Instance))
                     {
                         panel1.Controls.Add(ucSendElementById.Instance);

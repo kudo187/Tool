@@ -12,6 +12,8 @@ namespace ToolWebDriver
 {
     public partial class ucGoUrl : UserControl
     {
+        public delegate void ucGoUrlDelegate(string data);
+        public event ucGoUrlDelegate sendData;
         private static ucGoUrl _instance;
         public static ucGoUrl Instance
         {
@@ -30,6 +32,28 @@ namespace ToolWebDriver
         private void ucGoUrl_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddAction_Click(object sender, EventArgs e)
+        {
+            string url = txtUrl.Text.Trim();
+
+            if (string.IsNullOrEmpty(url))
+            {
+                MessageBox.Show("Wrong url!!!!", "Error",
+                MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
+
+            if (sendData != null)
+            {
+               sendData(url);
+            }
+            else
+            {
+                this.Controls.Clear();
+                this.ParentForm.Close();
+            }
         }
     }
 }

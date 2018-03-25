@@ -57,6 +57,7 @@
             this.btnAddAction.TabIndex = 2;
             this.btnAddAction.Text = "Thêm";
             this.btnAddAction.UseVisualStyleBackColor = true;
+            this.btnAddAction.Click += new System.EventHandler(this.btnAddAction_Click);
             // 
             // ucGoUrl
             // 
